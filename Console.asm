@@ -7,8 +7,11 @@ section '.rdata' data readable
 
 ; Prints
 welcome db 'Cleo Patch by Motley', 10, 0
-gameHack db 'Bypassing anticheat security..', 10, 0
+
 gameFound db 'Game was found..', 10, 0
+
+gameHack db 'Bypassing anticheat security..', 10, 0
+
 
 ; Game Title 
 WindowTitle db 'Liberty Unleashed 0.1', 0
@@ -18,8 +21,8 @@ Main:
         push welcome
         call [printf]
         pop ecx
-
         push 0
+
         jmp game
 game:
         invoke FindWindow, NULL, WindowTitle
@@ -31,13 +34,13 @@ StartPatch:
         push gameFound
         call [printf]
         pop ecx
-
         push 0
+
         push gameHack
         call [printf]
         pop ecx
-
         push 0
+
         call sPause
 
 sPause:
